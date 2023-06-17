@@ -1,11 +1,12 @@
 package ch.heigvd.pdl.refactoring;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Order {
-    private List<Product> products = new ArrayList<>();
-    private int id;
+    private final List<Product> products = new ArrayList<>();
+    private final int id;
 
     public Order(int id) {
         this.id = id;
@@ -15,8 +16,8 @@ public class Order {
         return id;
     }
 
-    public int getProductsCount() {
-        return products.size();
+    public List<Product> getProducts() {
+        return new LinkedList<>(products);
     }
 
     public Product getProduct(int j) {

@@ -22,12 +22,15 @@ public class Product {
         return code;
     }
 
-    public int getColor() {
-        return color;
+    public String getColor() {
+        return Color.getColor(color);
     }
 
-    public int getSize() {
-        return size;
+    public String getSize() {
+        if(size != SIZE_NOT_APPLICABLE) {
+            return Size.getSize(size);
+        }
+        return null;
     }
 
     public double getPrice() {
