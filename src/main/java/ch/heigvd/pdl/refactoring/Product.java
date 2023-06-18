@@ -1,5 +1,7 @@
 package ch.heigvd.pdl.refactoring;
 
+import java.util.Objects;
+
 public class Product {
     private final String code;
     private final Color color;
@@ -8,6 +10,14 @@ public class Product {
     private final String currency;
 
     public Product(String code, Color color, Size size, double price, String currency) {
+        Objects.requireNonNull(code, "Code cannot be null");
+        Objects.requireNonNull(color, "Color cannot be null");
+        Objects.requireNonNull(size, "Size cannot be null");
+        Objects.requireNonNull(currency, "Currency cannot be null");
+
+        if (price < 0)
+            throw new IllegalArgumentException("Price cannot be negative");
+
         this.code = code;
         this.color = color;
         this.size = size;
@@ -23,7 +33,9 @@ public class Product {
         return color.toString();
     }
 
-    public String getSize() { return size.toString(); }
+    public String getSize() {
+        return size.toString();
+    }
 
     public double getPrice() {
         return price;
