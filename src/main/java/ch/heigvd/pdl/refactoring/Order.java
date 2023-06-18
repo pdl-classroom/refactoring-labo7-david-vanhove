@@ -20,10 +20,6 @@ public class Order {
         return new LinkedList<>(products);
     }
 
-    public Product getProduct(int j) {
-        return products.get(j);
-    }
-
     public void addProduct(Product product) {
         products.add(product);
     }
