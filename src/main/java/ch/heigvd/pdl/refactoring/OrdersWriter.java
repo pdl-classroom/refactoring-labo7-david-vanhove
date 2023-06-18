@@ -15,9 +15,8 @@ public class OrdersWriter {
         JSONObject jsonObject = new JSONObject();
         JSONArray ordersArray = new JSONArray();
 
-        for (int i = 0; i < orders.size(); i++) {
-            ordersArray.put(createOrderObject(orders.get(i)));
-        }
+        for (Order order : orders)
+            ordersArray.put(createOrderObject(order));
 
         jsonObject.put("orders", ordersArray);
         return jsonObject.toString();
@@ -27,9 +26,8 @@ public class OrdersWriter {
         JSONObject orderObject = new JSONObject();
         JSONArray productsArray = new JSONArray();
 
-        for (Product product : order.getProducts()) {
+        for (Product product : order.getProducts())
             productsArray.put(createProductObject(product));
-        }
 
         orderObject.put("id", order.getOrderId());
         orderObject.put("products", productsArray);
