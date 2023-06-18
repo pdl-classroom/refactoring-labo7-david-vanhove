@@ -1,29 +1,23 @@
 package ch.heigvd.pdl.refactoring;
 
 public enum Size {
-    XS(1, "XS"),
-    S(2, "S"),
-    M(3, "M"),
-    L(4, "L"),
-    XL(5, "XL"),
-    XXL(6, "XXL"),
-    NOT_APPLICABLE(-1, "Size not applicable"),
-    INVALID_SIZE(0, "Invalid Size");
+    XS("XS"),
+    S("S"),
+    M("M"),
+    L("L"),
+    XL("XL"),
+    XXL("XXL"),
+    NOT_APPLICABLE("Size not applicable"),
+    INVALID_SIZE("Invalid Size");
 
-    private final int code;
     private final String size;
 
-    Size(int code, String size) {
-        this.code = code;
+    Size(String size) {
         this.size = size;
     }
 
-    public static String getSize(int code) {
-        for(Size size : Size.values()) {
-            if(size.code == code) {
-                return size.size;
-            }
-        }
-        return INVALID_SIZE.size;
+    @Override
+    public String toString() {
+        return this.size;
     }
 }

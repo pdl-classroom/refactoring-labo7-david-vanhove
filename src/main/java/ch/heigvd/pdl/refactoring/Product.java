@@ -2,12 +2,12 @@ package ch.heigvd.pdl.refactoring;
 
 public class Product {
     private String code;
-    private int color;
-    private int size;
+    private Color color;
+    private Size size;
     private double price;
     private String currency;
 
-    public Product(String code, int color, int size, double price, String currency) {
+    public Product(String code, Color color, Size size, double price, String currency) {
         this.code = code;
         this.color = color;
         this.size = size;
@@ -20,15 +20,10 @@ public class Product {
     }
 
     public String getColor() {
-        return Color.getColor(color);
+        return color.toString();
     }
 
-    public String getSize() {
-        if(size != Size.NOT_APPLICABLE.ordinal()) {
-            return Size.getSize(size);
-        }
-        return null;
-    }
+    public String getSize() { return size.toString(); }
 
     public double getPrice() {
         return price;

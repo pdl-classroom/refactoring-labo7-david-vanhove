@@ -43,7 +43,7 @@ public class OrdersWriter {
         productObject.put("code", product.getCode());
         productObject.put("color", product.getColor());
 
-        if (product.getSize() != null) {
+        if (!product.getSize().equals(Size.NOT_APPLICABLE.toString())) {
             productObject.put("size", product.getSize());
         }
 
