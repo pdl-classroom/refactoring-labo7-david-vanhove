@@ -1,11 +1,11 @@
 package ch.heigvd.pdl.refactoring;
 
 public class Product {
-    private String code;
-    private Color color;
-    private Size size;
-    private double price;
-    private String currency;
+    private final String code;
+    private final Color color;
+    private final Size size;
+    private final double price;
+    private final String currency;
 
     public Product(String code, Color color, Size size, double price, String currency) {
         this.code = code;
