@@ -6,7 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class OrdersWriterTest {
+class OrdersWriterTest {
     ArrayList<Order> orders = new ArrayList<>();
     Order order111 = new Order(111);
 
@@ -20,32 +20,32 @@ public class OrdersWriterTest {
     }
 
     @Test
-    public void NoOrder() {
+    void NoOrder() {
         assertJsonEquals("{\"orders\": []}", new OrdersWriter(new ArrayList<>()).getContents());
     }
 
     @Test
-    public void OneOrder() {
+    void OneOrder() {
         String expected = "{\"orders\": [{\"id\": 111, \"products\": []}]}";
         assertJsonEquals(expected, new OrdersWriter(orders).getContents());
     }
 
     @Test
-    public void TwoOrders() {
+    void TwoOrders() {
         orders.add(new Order(222));
         String expected = "{\"orders\": [{\"id\": 111, \"products\": []}, {\"id\": 222, \"products\": []}]}";
         assertJsonEquals(expected, new OrdersWriter(orders).getContents());
     }
 
     @Test
-    public void OneOrderWithOneProduct() {
+    void OneOrderWithOneProduct() {
         order111.addProduct(new Product("Shirt", Color.BLUE, Size.M, 2.99, "TWD"));
         String expected = "{\"orders\": [{\"id\": 111, \"products\": [{\"code\": \"Shirt\", \"color\": \"blue\", \"size\": \"M\", \"price\": 2.99, \"currency\": \"TWD\"}]}]}";
         assertJsonEquals(expected, new OrdersWriter(orders).getContents());
     }
 
     @Test
-    public void OneOrderWithOneProductNoSize() {
+    void OneOrderWithOneProductNoSize() {
         order111.addProduct(new Product("Pot", Color.RED, Size.NOT_APPLICABLE, 16.50, "SGD"));
         String expected = "{\"orders\": [{\"id\": 111, \"products\": [{\"code\": \"Pot\", \"color\": \"red\", \"price\": 16.5, \"currency\": \"SGD\"}]}]}";
         assertJsonEquals(expected, new OrdersWriter(orders).getContents());
