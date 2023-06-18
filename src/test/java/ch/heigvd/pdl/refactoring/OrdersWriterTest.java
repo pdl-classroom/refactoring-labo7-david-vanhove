@@ -39,14 +39,14 @@ public class OrdersWriterTest {
 
     @Test
     public void OneOrderWithOneProduct() {
-        order111.AddProduct(new Product("Shirt", Color.BLUE, Size.M, 2.99, "TWD"));
+        order111.addProduct(new Product("Shirt", Color.BLUE, Size.M, 2.99, "TWD"));
         String expected = "{\"orders\": [{\"id\": 111, \"products\": [{\"code\": \"Shirt\", \"color\": \"blue\", \"size\": \"M\", \"price\": 2.99, \"currency\": \"TWD\"}]}]}";
         assertJsonEquals(expected, new OrdersWriter(orders).getContents());
     }
 
     @Test
     public void OneOrderWithOneProductNoSize() {
-        order111.AddProduct(new Product("Pot", Color.RED, Size.NOT_APPLICABLE, 16.50, "SGD"));
+        order111.addProduct(new Product("Pot", Color.RED, Size.NOT_APPLICABLE, 16.50, "SGD"));
         String expected = "{\"orders\": [{\"id\": 111, \"products\": [{\"code\": \"Pot\", \"color\": \"red\", \"price\": 16.5, \"currency\": \"SGD\"}]}]}";
         assertJsonEquals(expected, new OrdersWriter(orders).getContents());
     }
