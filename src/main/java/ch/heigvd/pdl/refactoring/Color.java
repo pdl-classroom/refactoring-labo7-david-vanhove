@@ -6,14 +6,10 @@ public enum Color {
     YELLOW("yellow"),
     NO_COLOR("no color");
 
-    private final String color;
+    private final String name;
 
-    Color(String color) {
-        this.color = color;
-    }
+    Color(String color) { name = color; }
 
     @Override
-    public String toString() {
-        return this.color;
-    }
+    public String toString() { return name; }
 }

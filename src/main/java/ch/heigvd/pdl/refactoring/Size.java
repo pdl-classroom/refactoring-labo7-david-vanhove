@@ -10,14 +10,10 @@ public enum Size {
     NOT_APPLICABLE("Size not applicable"),
     INVALID_SIZE("Invalid Size");
 
-    private final String size;
+    private final String name;
 
-    Size(String size) {
-        this.size = size;
-    }
+    Size(String size) { name = size; }
 
     @Override
-    public String toString() {
-        return this.size;
-    }
+    public String toString() { return name; }
 }

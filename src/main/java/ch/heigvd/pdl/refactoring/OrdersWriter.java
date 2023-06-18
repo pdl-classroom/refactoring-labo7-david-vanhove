@@ -8,9 +8,7 @@ import java.util.List;
 public class OrdersWriter {
     private final List<Order> orders;
 
-    public OrdersWriter(List<Order> orders) {
-        this.orders = orders;
-    }
+    public OrdersWriter(List<Order> orders) { this.orders = orders; }
 
     public String getContents() {
         JSONObject jsonObject = new JSONObject();

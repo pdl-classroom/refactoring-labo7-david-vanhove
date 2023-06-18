@@ -25,23 +25,13 @@ public class Product {
         this.currency = currency;
     }
 
-    public String getCode() {
-        return code;
-    }
+    public String getCode() { return code; }
 
-    public String getColor() {
-        return color.toString();
-    }
+    public String getColor() { return color.toString(); }
 
-    public String getSize() {
-        return size.toString();
-    }
+    public String getSize() { return size.toString(); }
 
-    public double getPrice() {
-        return price;
-    }
+    public double getPrice() { return price; }
 
-    public String getCurrency() {
-        return currency;
-    }
+    public String getCurrency() { return currency; }
 }
