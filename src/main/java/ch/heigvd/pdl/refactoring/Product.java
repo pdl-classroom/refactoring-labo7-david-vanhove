@@ -1,6 +1,6 @@
 package ch.heigvd.pdl.refactoring;
 
-import java.util.Objects;
+import org.json.JSONObject;
 
 public class Product {
     private final String code;
@@ -42,4 +42,19 @@ public class Product {
     public double getPrice() { return price; }
 
     public String getCurrency() { return currency; }
+
+    public JSONObject toJSON() {
+        JSONObject productObject = new JSONObject();
+
+        productObject.put("code", this.getCode());
+        productObject.put("color", this.getColor());
+
+        if (!this.getSize().equals(Size.NOT_APPLICABLE.toString()))
+            productObject.put("size", this.getSize());
+
+        productObject.put("price", this.getPrice());
+        productObject.put("currency", this.getCurrency());
+
+        return productObject;
+    }
 }
