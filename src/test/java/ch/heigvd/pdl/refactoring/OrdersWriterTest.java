@@ -3,15 +3,16 @@ package ch.heigvd.pdl.refactoring;
 import org.json.JSONObject;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
+import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class OrdersWriterTest {
-    Orders orders = new Orders();
+    ArrayList<Order> orders = new ArrayList<>();
     Order order111 = new Order(111);
 
     @BeforeEach
     public void SetupOneOrder() {
-        orders.AddOrder(order111);
+        orders.add(order111);
     }
 
     private void assertJsonEquals(String expected, String actual) {
@@ -20,7 +21,7 @@ public class OrdersWriterTest {
 
     @Test
     public void NoOrder() {
-        assertJsonEquals("{\"orders\": []}", new OrdersWriter(new Orders()).getContents());
+        assertJsonEquals("{\"orders\": []}", new OrdersWriter(new ArrayList<>()).getContents());
     }
 
     @Test
@@ -31,7 +32,7 @@ public class OrdersWriterTest {
 
     @Test
     public void TwoOrders() {
-        orders.AddOrder(new Order(222));
+        orders.add(new Order(222));
         String expected = "{\"orders\": [{\"id\": 111, \"products\": []}, {\"id\": 222, \"products\": []}]}";
         assertJsonEquals(expected, new OrdersWriter(orders).getContents());
     }

@@ -2,11 +2,12 @@ package ch.heigvd.pdl.refactoring;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import java.util.List;
 
 public class OrdersWriter {
-    private final Orders orders;
+    private final List<Order> orders;
 
-    public OrdersWriter(Orders orders) {
+    public OrdersWriter(List<Order> orders) {
         this.orders = orders;
     }
 
@@ -14,8 +15,8 @@ public class OrdersWriter {
         JSONObject jsonObject = new JSONObject();
         JSONArray ordersArray = new JSONArray();
 
-        for (int i = 0; i < orders.getOrdersCount(); i++) {
-            ordersArray.put(createOrderObject(orders.getOrder(i)));
+        for (int i = 0; i < orders.size(); i++) {
+            ordersArray.put(createOrderObject(orders.get(i)));
         }
 
         jsonObject.put("orders", ordersArray);
