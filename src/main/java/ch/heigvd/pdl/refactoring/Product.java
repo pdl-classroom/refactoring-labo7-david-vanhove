@@ -1,9 +1,6 @@
 package ch.heigvd.pdl.refactoring;
 
 public class Product {
-
-    public static final int SIZE_NOT_APPLICABLE = -1;
-
     private String code;
     private int color;
     private int size;
@@ -27,7 +24,7 @@ public class Product {
     }
 
     public String getSize() {
-        if(size != SIZE_NOT_APPLICABLE) {
+        if(size != Size.NOT_APPLICABLE.ordinal()) {
             return Size.getSize(size);
         }
         return null;

@@ -7,6 +7,7 @@ public enum Size {
     L(4, "L"),
     XL(5, "XL"),
     XXL(6, "XXL"),
+    NOT_APPLICABLE(-1, "Size not applicable"),
     INVALID_SIZE(0, "Invalid Size");
 
     private final int code;
