@@ -1,7 +1,7 @@
 package ch.heigvd.pdl.refactoring;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.Collections;
 import java.util.List;
 
 public class Order {
@@ -17,7 +17,7 @@ public class Order {
     }
 
     public List<Product> getProducts() {
-        return new LinkedList<>(products);
+        return Collections.unmodifiableList(products);
     }
 
     public void addProduct(Product product) {
