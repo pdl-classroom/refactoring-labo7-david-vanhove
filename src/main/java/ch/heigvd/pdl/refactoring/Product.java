@@ -10,13 +10,21 @@ public class Product {
     private final String currency;
 
     public Product(String code, Color color, Size size, double price, String currency) {
-        Objects.requireNonNull(code, "Code cannot be null");
-        Objects.requireNonNull(color, "Color cannot be null");
-        Objects.requireNonNull(size, "Size cannot be null");
-        Objects.requireNonNull(currency, "Currency cannot be null");
-
-        if (price < 0)
+        if (code == null) {
+            throw new IllegalArgumentException("Code cannot be null");
+        }
+        if (color == null) {
+            throw new IllegalArgumentException("Color cannot be null");
+        }
+        if (size == null) {
+            throw new IllegalArgumentException("Size cannot be null");
+        }
+        if (currency == null) {
+            throw new IllegalArgumentException("Currency cannot be null");
+        }
+        if (price < 0) {
             throw new IllegalArgumentException("Price cannot be negative");
+        }
 
         this.code = code;
         this.color = color;
